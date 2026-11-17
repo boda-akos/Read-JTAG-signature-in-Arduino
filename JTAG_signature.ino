@@ -36,7 +36,7 @@ uint32_t readIDCODE() {
   for(int i=0;i<32;i++){
     id |= ((uint32_t) digitalRead(TDO)<<i);
     digitalWrite(TMS,(i==31)?1:0);
-    tck();
+ //   tck();  clock polarity issue, see loop
   }
   return id;
 }
